@@ -4,9 +4,9 @@ local clear_avatar = false
 local flush_body_colors = false
 local rename_instances = false
 local change_id = false
-local deep_scan = true 
+local deep_scan = false 
 local filter_httpget = {
-    enabled = true,
+    enabled = false,
     result = true,
     request = true
 }
