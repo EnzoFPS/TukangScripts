@@ -1,11 +1,17 @@
-for a,b in pairs(getgc()) do 
-    if typeof(b) == 'function' then 
-        if debug.getinfo(b).name == 'kick' then 
-            hookfunction(debug.getinfo(b).func, function()
-                print("Anti-Cheat Bypassed!")
-            end)
-        end
-    end 
-end 
+local playerscripts = game:GetService'Players'.LocalPlayer.PlayerScripts
 
-print("Anti-Cheat Bypassed!")
+local script1 = playerscripts.LocalScript
+local script2 = playerscripts.LocalScript2
+
+local script1signal = script1.Changed
+local script2signal = script2.Changed
+
+for i, connection in next, getconnections(script1signal) do
+    connection:Disable()
+end
+for i, connection in next, getconnections(script2signal) do
+    connection:Disable()
+end
+
+script1:Destroy()
+script2:Destroy()
