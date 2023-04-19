@@ -3,10 +3,10 @@ local function DisableSignal(signal, name)
     for i, connection in next, getconnections(signal) do
         local success, err = pcall(connection.Disable)
         if success then
-            print('successfully disconnected ' .. name .. '\'s #' .. tostring(i) .. ' connection')
+            print('Disconnected ' .. name .. '\'s #' .. tostring(i) .. ' connection')
         else
             if err then
-                print('failed to disconnect ' .. name .. '\'s # ' .. tostring(i) .. 'connection due to ' .. err)
+                print('Failed to Disconnect ' .. name .. '\'s # ' .. tostring(i) .. 'connection due to ' .. err)
             end
             successes = false
         end
